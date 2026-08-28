@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SBC Homepage</title>
+    <style>
+        /* Убираем все отступы и жестко фиксируем размер окна */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            height: 100% !important;
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Главный контейнер, который никогда не станет больше экрана */
+        #player-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 100%;
+            max-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Сам плеер Ruffle растягивается ровно на 100% от контейнера */
+        ruffle-player {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+    
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+<body>
+
+    <div id="player-container"></div>
+
+    <script>
+        // Ждем, пока загрузится Ruffle
+        window.addEventListener("DOMContentLoaded", () => {
+            // Создаём плеер с настройками автозапуска
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            
+            // Настройки плеера — включаем автозапуск
+            player.config = {
+                autoplay: "auto",
+                unmuteOverlay: "hidden",
+                allowScriptAccess: "always",
+                allowNetworking: "all",
+                allowScale: true,
+                scale: "showAll",
+                letterbox: "on",
+                quality: "high"
+            };
+            
+            // Находим наш контейнер и вставляем туда плеер
+            const container = document.getElementById("player-container");
+            container.appendChild(player);
+            
+            // Загружаем твой SWF-файл
+            player.load("fl8_index.html.swf");
+            
+            // Принудительно запускаем воспроизведение (обходит политику автозапуска)
+            setTimeout(() => {
+                try {
+                    player.play();
+                } catch(e) {
+                    console.log("Автозапуск заблокирован браузером:", e);
+                }
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>

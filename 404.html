@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - LOST IN FERRISVILLE</title>
+    <style>
+		@font-face {
+			font-family: 'SmokingBadFont';
+			src: url('bloodcrow.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		body {
+			background-color: #000000;
+			color: #ffffff;
+			font-family: 'SmokingBadFont', 'Courier New', monospace;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			padding-top: 60px;
+			overflow-x: hidden;
+		}
+        h1 { 
+            color: #ff0000; 
+            font-size: 54px; 
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+        .error-text {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        .scene-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .scene-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .button-holder {
+            position: absolute;
+            top: 45%; /* Смещает кнопку ровно в просвет между Вилли и Риком */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+		.back-link { 
+            display: inline-block;
+            color: #00ff00; 
+            text-decoration: none; 
+            border: 2px solid #00ff00; 
+            padding: 12px 24px; 
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #000000;
+            letter-spacing: 1px;
+        }
+		.back-link:hover { 
+            background-color: #00ff00; 
+            color: #000000; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ERROR 404</h1>
+    
+    <div class="error-text">
+        <p>You took a wrong turn, dude. This street in Ferrisville doesn't exist.</p>
+        <p>Willy probably stole this page or it was obliterated by Sprunki's toxins.</p>
+    </div>
+
+    <div class="scene-container">
+        <img src="404.png" class="scene-image" alt="Willy and Rick" />
+        
+        <div class="button-holder">
+            <a href="index.html" class="back-link">&lt;&lt; BACK TO MAIN HUB</a>
+        </div>
+    </div>
+
+</body>
+</html>
