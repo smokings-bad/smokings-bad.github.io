@@ -6,7 +6,7 @@
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="favicon.png" rel="icon" sizes="48x48" type="image/png">
 <link href="favicon.png" rel="icon" sizes="48x48" type="image/png">
-<link href="../smokings-bad.css" rel="stylesheet">
+<link href="smokings-bad.css" rel="stylesheet">
 <link href="whack.css" rel="stylesheet">
 <script src="../ruffle.js"></script>
 </head>
@@ -26,7 +26,10 @@
     player.style.height = "400px";
     const container = document.getElementById("flash-container");
     container.appendChild(player);
-    player.load("maga.swf");
+    player.load({
+        url: "maga.swf",
+        wmode: "transparent"
+    });
 </script>
 
 <div id="wb_Text1" style="position:absolute;left:339px;top:382px;width:261px;height:124px;z-index:3;">
